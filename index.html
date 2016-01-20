@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/connect4.css"></link>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/socket.js"></script>
+		<script src="js/canvas.js"></script>
+		<script src="js/connect4.js"></script>
+	</head>
+	<body>
+		<div id="lobby">
+			<div id="header">CONNECT4 ONLINE</div>
+			<div id="info">
+				<div>Name: <input type="text" id="name" value="Peggy"></input></div>
+				<div>Server: <input type="text" id="ip" value="68.53.99.168"></input></div>
+				<div>Port: <input type="text" id="port" value="5081"></input></div>
+				<div>Game Key: <input type="text" id="key" value=""></input></div>
+				<div><button id="find" autocomplete="off">Find Game</button></div>
+			</div>
+		</div>
+		<div id="game">
+			<div id="gameHeader"></div>
+			<div id="chatContainer">
+				<div id="chat"></div>
+				<div id="input">
+					<input type="text" id="chatInput"></input>
+					<button id="sendChat">Send</button>
+				</div>
+			</div>
+			<canvas id="canvas" width="800" height="600"></canvas>
+		</div>
+	</body>
+</html>

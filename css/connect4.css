@@ -1,0 +1,129 @@
+body
+{
+  font-family:Helvetica;
+  margin:0px;
+  padding:0px;
+}
+
+#lobby
+{
+  text-align:center;
+  background-color:#EEEEEE;
+  width:100%;
+  height:100%;
+  margin:0px;
+  padding:0px;
+}
+
+#info > div
+{
+  display:inline-block;
+  margin:0px 8px;
+}
+
+#header
+{
+  font-size:48px;
+  padding:12px;
+}
+
+#gameHeader
+{
+  position:absolute;
+  left:0px;
+  right:0px;
+  height:48px;
+  line-height:48px;
+  font-size:24px;
+  text-align:center;
+  background-color:#AACCFF;
+}
+
+#canvas
+{
+  position:absolute;
+  top:64px;
+  left:16px;
+  border:1px solid #3355FF;
+}
+
+#chatContainer
+{
+  position:absolute;
+  right:0px;
+  bottom:0px;
+  top:48px;
+  border-left:1px solid #aaaaaa;
+  width:320px;
+}
+
+#input
+{
+  position:absolute;
+  left:8px;
+  bottom:8px;
+  right:8px;
+  height:32px;
+}
+
+#chatInput
+{
+  width:calc(100% - 48px);
+  height:100%;
+  box-sizing:border-box;
+  border:1px solid #aaaaaa;
+  border-top-left-radius:2px;
+  border-bottom-left-radius:2px;
+}
+
+#sendChat
+{
+  position:absolute;
+  right:0px;
+  height:100%;
+  width:48px;
+  border:1px solid #aaaaaa;
+  border-left:0px;
+  border-top-right-radius:2px;
+  border-bottom-right-radius:2px;
+}
+
+#chat
+{
+  position:absolute;
+  left:0px;
+  top:0px;
+  right:0px;
+  bottom:48px;
+  background:#;
+  overflow:auto;
+}
+
+.chatItem
+{
+  word-wrap:break-word;
+  width:calc(100% - 12px);
+  margin:0px;
+  padding:6px;
+}
+
+.chatItem > span
+{
+  padding:0px;
+  margin:0px;
+}
+
+.chatItemName
+{
+  font-weight:bold;
+}
+
+.chatItemMessage
+{
+  
+}
+
+.chatItem:nth-child(odd)
+{
+    background:#EEEEFF;
+}
