@@ -23,6 +23,9 @@ $(function()
 
 	$("#sendChat").click(() => sendChat());
 	$("#chatInput").keypress((e) => { if (e.which === 13) sendChat(); });
+	$("#forfeit").click(() => forfeit());
+	$("#reset").click(() => requestReset());
+	$("#return").click(() => returnToLobby());
 });
 
 function getPos(el)
@@ -106,6 +109,28 @@ function makeChat(user, message)
     w.scrollTop = w.scrollHeight;
 }
 
+function setStatus(text)
+{
+	$("#status").text(text);
+}
+
+function forfeit()
+{
+	socket.send("forfeit", "");
+}
+
+function requestReset()
+{
+	socket.send("reset", "");
+}
+
+function returnToLobby()
+{
+	$("#game").hide();
+	$("#lobby").show();
+	socket.send("forfeit", "");
+}
+
 var messageHandlers =
 {
 	start(data)
@@ -131,6 +156,7 @@ var messageHandlers =
 	turn(data)
 	{
 		isMyTurn = data;
+		setStatus(isMyTurn ? "Your Turn" : opponent + "'s Turn");
 	},
 	queued(data)
 	{
@@ -138,12 +164,22 @@ var messageHandlers =
 	},
 	end(data)
 	{
+		isMyTurn = false;
 		var message = data ? "You won! Nice!" : "You lost! Nice!";
-		alert(message);
+		setStatus(message);
 	},
 	chat(data)
 	{
 		makeChat(data.name, data.message);
+	},
+	reset(data)
+	{
+		makeChat("Game", "The game was reset!");
+	},
+	dead(data)
+	{
+		alert("The game is now dead. You will be returned to the lobby.");
+		returnToLobby();
 	}
 };
 

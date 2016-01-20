@@ -42,9 +42,25 @@ body
 #canvas
 {
   position:absolute;
-  top:64px;
+  top:104px;
   left:16px;
   border:1px solid #3355FF;
+}
+
+#status
+{
+  position:absolute;
+  top:64px;
+  left:16px;
+  font-size:24px;
+}
+
+#tools
+{
+  position: absolute;
+  left:16px;
+  height:48px;
+  line-height:48px;
 }
 
 #chatContainer
