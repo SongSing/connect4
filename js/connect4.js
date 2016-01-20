@@ -129,6 +129,8 @@ function returnToLobby()
 	$("#game").hide();
 	$("#lobby").show();
 	socket.send("forfeit", "");
+	socket.onClose = () => {};
+	socket.close();
 }
 
 var messageHandlers =
@@ -207,7 +209,6 @@ function drawBoard()
 	var rh = height / board.length;
 
 	var s = Math.min(rw, rh) - margin;
-	console.log(`rw: ${rw} | rh: ${rh} | s: ${s}`);
 
 	var colors = [ "#FFFFFF", "#FF0000", "#FFFF00" ];
 
