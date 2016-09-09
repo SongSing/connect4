@@ -10,6 +10,8 @@ var mousePos = { "x": 0, "y": 0 };
 var myColor;
 var isMyTurn = true;
 var piece;
+var chatSwitch = false;
+var lastChat = null;
 
 $(function()
 {
@@ -88,8 +90,17 @@ function sendChat()
 
 function makeChat(user, message)
 {
+	if (user !== lastChat)
+	{
+		chatSwitch = !chatSwitch;
+	}
+
+	lastChat = user;
+
+	// do it by ids if people are shit, this is good enough 4 now :~)
+
 	var $c = document.createElement("div");
-	$c.className = "chatItem";
+	$c.className = "chatItem" + (chatSwitch ? " chatItem-alt" : "");
 
 	var $name = document.createElement("span");
 	$name.className = "chatItemName";
